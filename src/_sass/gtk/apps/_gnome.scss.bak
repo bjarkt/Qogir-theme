@@ -5,12 +5,12 @@
 terminal-window,
 .mate-terminal {
   notebook {
-    padding: 0 0px 0px;
+    padding: 0 1px 1px;
     > header.top {
       button {
         padding: 0;
         min-width: 24px;
-        min-height: 16px;
+        min-height: 24px;
       }
     }
     scrollbar {
@@ -175,7 +175,7 @@ terminal-window,
 .nautilus-window,
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
-  @extend %nautilus_backimage;
+  background-image: none;
   // @extend %nautilus_backimage;
 }
 

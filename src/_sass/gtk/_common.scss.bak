@@ -1208,7 +1208,7 @@ headerbar,
     .fullscreen & { box-shadow: none; }
 
     button.titlebutton {
-      @extend %square_titlebutton;
+      @extend %circle_titlebutton;
       border: none;
     }
   }
@@ -3429,7 +3429,7 @@ decoration {
 
 headerbar,
 .titlebar {
-  @extend %csd_square_titlebutton;
+  @extend %csd_circle_titlebutton;
 }
 
 %csd_square_titlebutton {

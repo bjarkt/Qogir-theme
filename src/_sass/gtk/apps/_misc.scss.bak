@@ -832,7 +832,7 @@ window.background.chromium {
   color: $text_color;
 
   headerbar.titlebar {
-    @extend %square_chrome;
+    @extend %circle_chrome;
 
     button.toggle { // account-button (> 64.0.3282?)
       @include button(header-normal);

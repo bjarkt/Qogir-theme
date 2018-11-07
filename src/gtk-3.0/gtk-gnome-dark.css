@@ -1650,15 +1650,14 @@ headerbar .default-decoration.titlebar:not(headerbar) button.titlebutton, .defau
 .titlebar:not(headerbar) headerbar.default-decoration button.titlebutton,
 headerbar.default-decoration .titlebar:not(headerbar) button.titlebutton,
 .default-decoration.titlebar:not(headerbar) button.titlebutton {
-  min-height: 23px;
-  min-width: 23px;
-  padding: 2px;
+  min-height: 30px;
+  min-width: 30px;
 }
 
 headerbar.default-decoration,
 .default-decoration.titlebar:not(headerbar) {
   min-height: 30px;
-  padding: 0 8px;
+  padding: 0 0px;
   margin: 0;
   background-color: #282a33;
 }
@@ -1700,8 +1699,8 @@ headerbar.default-decoration,
 }
 
 headerbar entry, headerbar button, headerbar separator {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 window > .titlebar:not(headerbar), window > .titlebar:not(headerbar):backdrop,
@@ -4474,7 +4473,7 @@ decoration:backdrop {
 
 tooltip.csd decoration {
   border-radius: 2px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 3px 0 transparent;
 }
 
 messagedialog.csd decoration {
@@ -4489,7 +4488,31 @@ messagedialog.csd decoration {
   box-shadow: none;
 }
 
-headerbar button.titlebutton, .titlebar button.titlebutton, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton {
+headerbar > box.horizontal.left > button.titlebutton.close, .titlebar > box.horizontal.left > button.titlebutton.close {
+  margin-left: -10px;
+}
+
+headerbar > box.horizontal.left > button.titlebutton.maximize, .titlebar > box.horizontal.left > button.titlebutton.maximize {
+  margin-left: -6px;
+}
+
+headerbar > box.horizontal.left > button.titlebutton.minimize, .titlebar > box.horizontal.left > button.titlebutton.minimize {
+  margin-left: -6px;
+}
+
+headerbar > box.horizontal.right > button.titlebutton.close, .titlebar > box.horizontal.right > button.titlebutton.close {
+  margin-right: -10px;
+}
+
+headerbar > box.horizontal.right > button.titlebutton.maximize, .titlebar > box.horizontal.right > button.titlebutton.maximize {
+  margin-right: -6px;
+}
+
+headerbar > box.horizontal.right > button.titlebutton.minimize, .titlebar > box.horizontal.right > button.titlebutton.minimize {
+  margin-right: -6px;
+}
+
+headerbar button.titlebutton, .titlebar button.titlebutton {
   margin: 0;
   padding: 0;
   min-width: 28px;
@@ -4500,19 +4523,146 @@ headerbar button.titlebutton, .titlebar button.titlebutton, #MozillaGtkWidget.ba
   background-color: rgba(40, 42, 51, 0);
 }
 
-headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:hover {
+headerbar button.titlebutton:hover, .titlebar button.titlebutton:hover {
   color: rgba(207, 218, 231, 0.8);
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #333641;
 }
 
-headerbar button.titlebutton:active, .titlebar button.titlebutton:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:active, headerbar button.titlebutton:checked, .titlebar button.titlebutton:checked, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:checked {
+headerbar button.titlebutton:active, .titlebar button.titlebutton:active, headerbar button.titlebutton:checked, .titlebar button.titlebutton:checked {
   color: #ffffff;
   border-color: #68a2e6;
   background-color: #5294e2;
 }
 
-headerbar button.titlebutton.close, .titlebar button.titlebutton.close, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize, headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore {
+headerbar button.titlebutton.close, .titlebar button.titlebutton.close, headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize, headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore {
+  padding: 0;
+  min-width: 38px;
+  min-height: 38px;
+  color: transparent;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-width: 0;
+  border-radius: 0;
+}
+
+headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop {
+  opacity: 1;
+}
+
+headerbar button.titlebutton.close, .titlebar button.titlebutton.close {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-dark-win.png"), url("assets/titlebutton-close-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark-win.png"), url("assets/titlebutton-close-backdrop-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-hover-dark-win.png"), url("assets/titlebutton-close-hover-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark-win.png"), url("assets/titlebutton-close-active-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark-win.png"), url("assets/titlebutton-maximize-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark-win.png"), url("assets/titlebutton-maximize-backdrop-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark-win.png"), url("assets/titlebutton-maximize-hover-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark-win.png"), url("assets/titlebutton-maximize-active-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark-win.png"), url("assets/titlebutton-minimize-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark-win.png"), url("assets/titlebutton-minimize-backdrop-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark-win.png"), url("assets/titlebutton-minimize-hover-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark-win.png"), url("assets/titlebutton-minimize-active-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark-win.png"), url("assets/titlebutton-restore-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark-win.png"), url("assets/titlebutton-restore-backdrop-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.restore:hover, .titlebar button.titlebutton.restore:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark-win.png"), url("assets/titlebutton-restore-hover-dark-win@2.png"));
+}
+
+headerbar button.titlebutton.restore:active, .titlebar button.titlebutton.restore:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark-win.png"), url("assets/titlebutton-restore-active-dark-win@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize, .fullscreen .titlebar button.titlebutton.maximize,
+.maximized headerbar button.titlebutton.maximize,
+.maximized .titlebar button.titlebutton.maximize {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark-win.png"), url("assets/titlebutton-restore-dark-win@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize:backdrop, .fullscreen .titlebar button.titlebutton.maximize:backdrop,
+.maximized headerbar button.titlebutton.maximize:backdrop,
+.maximized .titlebar button.titlebutton.maximize:backdrop {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark-win.png"), url("assets/titlebutton-restore-backdrop-dark-win@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize:hover, .fullscreen .titlebar button.titlebutton.maximize:hover,
+.maximized headerbar button.titlebutton.maximize:hover,
+.maximized .titlebar button.titlebutton.maximize:hover {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark-win.png"), url("assets/titlebutton-restore-hover-dark-win@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize:active, .fullscreen .titlebar button.titlebutton.maximize:active,
+.maximized headerbar button.titlebutton.maximize:active,
+.maximized .titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark-win.png"), url("assets/titlebutton-restore-active-dark-win@2.png"));
+}
+
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton, window.background.chromium headerbar.titlebar button.titlebutton {
+  margin: 0;
+  padding: 0;
+  min-width: 28px;
+  min-height: 28px;
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  background-color: rgba(40, 42, 51, 0);
+}
+
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:hover, window.background.chromium headerbar.titlebar button.titlebutton:hover {
+  color: rgba(207, 218, 231, 0.8);
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: #333641;
+}
+
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:active, window.background.chromium headerbar.titlebar button.titlebutton:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton:checked, window.background.chromium headerbar.titlebar button.titlebutton:checked {
+  color: #ffffff;
+  border-color: #68a2e6;
+  background-color: #5294e2;
+}
+
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close, window.background.chromium headerbar.titlebar button.titlebutton.close, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize, window.background.chromium headerbar.titlebar button.titlebutton.maximize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize, window.background.chromium headerbar.titlebar button.titlebutton.minimize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore, window.background.chromium headerbar.titlebar button.titlebutton.restore {
   padding: 0;
   min-width: 27px;
   min-height: 27px;
@@ -4524,103 +4674,103 @@ headerbar button.titlebutton.close, .titlebar button.titlebutton.close, #Mozilla
   border-radius: 0;
 }
 
-headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:backdrop {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.close:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.maximize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.minimize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.restore:backdrop {
   opacity: 1;
 }
 
-headerbar button.titlebutton.close, .titlebar button.titlebutton.close, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close, window.background.chromium headerbar.titlebar button.titlebutton.close {
   background-image: -gtk-scaled(url("assets/titlebutton-close-dark.png"), url("assets/titlebutton-close-dark@2.png"));
 }
 
-headerbar button.titlebutton.close:backdrop, .titlebar button.titlebutton.close:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:backdrop {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark.png"), url("assets/titlebutton-close-backdrop-dark@2.png"));
 }
 
-headerbar button.titlebutton.close:hover, .titlebar button.titlebutton.close:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:hover {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:hover, window.background.chromium headerbar.titlebar button.titlebutton.close:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-close-hover-dark.png"), url("assets/titlebutton-close-hover-dark@2.png"));
 }
 
-headerbar button.titlebutton.close:active, .titlebar button.titlebutton.close:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:active {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.close:active, window.background.chromium headerbar.titlebar button.titlebutton.close:active {
   background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark.png"), url("assets/titlebutton-close-active-dark@2.png"));
 }
 
-headerbar button.titlebutton.maximize, .titlebar button.titlebutton.maximize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize, window.background.chromium headerbar.titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark.png"), url("assets/titlebutton-maximize-dark@2.png"));
 }
 
-headerbar button.titlebutton.maximize:backdrop, .titlebar button.titlebutton.maximize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark.png"), url("assets/titlebutton-maximize-backdrop-dark@2.png"));
 }
 
-headerbar button.titlebutton.maximize:hover, .titlebar button.titlebutton.maximize:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:hover {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:hover, window.background.chromium headerbar.titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark.png"), url("assets/titlebutton-maximize-hover-dark@2.png"));
 }
 
-headerbar button.titlebutton.maximize:active, .titlebar button.titlebutton.maximize:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:active {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:active, window.background.chromium headerbar.titlebar button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark.png"), url("assets/titlebutton-maximize-active-dark@2.png"));
 }
 
-headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize, window.background.chromium headerbar.titlebar button.titlebutton.minimize {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark.png"), url("assets/titlebutton-minimize-dark@2.png"));
 }
 
-headerbar button.titlebutton.minimize:backdrop, .titlebar button.titlebutton.minimize:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:backdrop {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.minimize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark.png"), url("assets/titlebutton-minimize-backdrop-dark@2.png"));
 }
 
-headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:hover {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:hover, window.background.chromium headerbar.titlebar button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark.png"), url("assets/titlebutton-minimize-hover-dark@2.png"));
 }
 
-headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:active {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.minimize:active, window.background.chromium headerbar.titlebar button.titlebutton.minimize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark.png"), url("assets/titlebutton-minimize-active-dark@2.png"));
 }
 
-headerbar button.titlebutton.restore, .titlebar button.titlebutton.restore, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore, window.background.chromium headerbar.titlebar button.titlebutton.restore {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-dark.png"), url("assets/titlebutton-restore-dark@2.png"));
 }
 
-headerbar button.titlebutton.restore:backdrop, .titlebar button.titlebutton.restore:backdrop, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:backdrop {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:backdrop, window.background.chromium headerbar.titlebar button.titlebutton.restore:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark.png"), url("assets/titlebutton-restore-backdrop-dark@2.png"));
 }
 
-headerbar button.titlebutton.restore:hover, .titlebar button.titlebutton.restore:hover, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:hover {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:hover, window.background.chromium headerbar.titlebar button.titlebutton.restore:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark.png"), url("assets/titlebutton-restore-hover-dark@2.png"));
 }
 
-headerbar button.titlebutton.restore:active, .titlebar button.titlebutton.restore:active, #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:active {
+#MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.restore:active, window.background.chromium headerbar.titlebar button.titlebutton.restore:active {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark.png"), url("assets/titlebutton-restore-active-dark@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize, .fullscreen .titlebar button.titlebutton.maximize, .fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize,
-.maximized headerbar button.titlebutton.maximize,
-.maximized .titlebar button.titlebutton.maximize,
+.fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize, .fullscreen window.background.chromium headerbar.titlebar button.titlebutton.maximize, window.background.chromium .fullscreen headerbar.titlebar button.titlebutton.maximize,
 .maximized #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize,
-#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize {
+#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize,
+.maximized window.background.chromium headerbar.titlebar button.titlebutton.maximize,
+window.background.chromium .maximized headerbar.titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-dark.png"), url("assets/titlebutton-restore-dark@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:backdrop, .fullscreen .titlebar button.titlebutton.maximize:backdrop, .fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop,
-.maximized headerbar button.titlebutton.maximize:backdrop,
-.maximized .titlebar button.titlebutton.maximize:backdrop,
+.fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop, .fullscreen window.background.chromium headerbar.titlebar button.titlebutton.maximize:backdrop, window.background.chromium .fullscreen headerbar.titlebar button.titlebutton.maximize:backdrop,
 .maximized #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop,
-#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop {
+#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:backdrop,
+.maximized window.background.chromium headerbar.titlebar button.titlebutton.maximize:backdrop,
+window.background.chromium .maximized headerbar.titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark.png"), url("assets/titlebutton-restore-backdrop-dark@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:hover, .fullscreen .titlebar button.titlebutton.maximize:hover, .fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:hover, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:hover,
-.maximized headerbar button.titlebutton.maximize:hover,
-.maximized .titlebar button.titlebutton.maximize:hover,
+.fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:hover, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:hover, .fullscreen window.background.chromium headerbar.titlebar button.titlebutton.maximize:hover, window.background.chromium .fullscreen headerbar.titlebar button.titlebutton.maximize:hover,
 .maximized #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:hover,
-#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:hover {
+#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:hover,
+.maximized window.background.chromium headerbar.titlebar button.titlebutton.maximize:hover,
+window.background.chromium .maximized headerbar.titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark.png"), url("assets/titlebutton-restore-hover-dark@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:active, .fullscreen .titlebar button.titlebutton.maximize:active, .fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:active, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:active,
-.maximized headerbar button.titlebutton.maximize:active,
-.maximized .titlebar button.titlebutton.maximize:active,
+.fullscreen #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:active, #MozillaGtkWidget.background .fullscreen headerbar.titlebar.default-decoration button.titlebutton.maximize:active, .fullscreen window.background.chromium headerbar.titlebar button.titlebutton.maximize:active, window.background.chromium .fullscreen headerbar.titlebar button.titlebutton.maximize:active,
 .maximized #MozillaGtkWidget.background headerbar.titlebar.default-decoration button.titlebutton.maximize:active,
-#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:active {
+#MozillaGtkWidget.background .maximized headerbar.titlebar.default-decoration button.titlebutton.maximize:active,
+.maximized window.background.chromium headerbar.titlebar button.titlebutton.maximize:active,
+window.background.chromium .maximized headerbar.titlebar button.titlebutton.maximize:active {
   background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark.png"), url("assets/titlebutton-restore-active-dark@2.png"));
 }
 
@@ -4704,19 +4854,27 @@ button.emoji-section:last-child {
 
 terminal-window notebook,
 .mate-terminal notebook {
-  padding: 0 1px 1px;
+  padding: 0 0px 0px;
 }
 
 terminal-window notebook > header.top button,
 .mate-terminal notebook > header.top button {
   padding: 0;
   min-width: 24px;
-  min-height: 24px;
+  min-height: 16px;
 }
 
 terminal-window notebook scrollbar,
 .mate-terminal notebook scrollbar {
   background: none;
+}
+
+.nautilus-window,
+.nautilus-window notebook,
+.nautilus-window notebook > stack {
+  background-image: -gtk-scaled(url("assets/backimage-dark.png"), url("assets/backimage-dark@2.png"));
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
 
 .nautilus-window headerbar {
@@ -4761,7 +4919,7 @@ terminal-window notebook scrollbar,
 }
 
 .nautilus-window headerbar .path-bar-box {
-  margin: 6px 0;
+  margin: 5px 0;
   border-radius: 2px;
   color: rgba(207, 218, 231, 0.8);
   background-color: transparent;
@@ -4824,12 +4982,6 @@ popover.background label.nautilus-canvas-item.separator, popover.background labe
 
 .nautilus-window headerbar, .nautilus-window headerbar:backdrop {
   box-shadow: inset 0 -1px #32343D, inset 38px 0 0 0 transparent;
-}
-
-.nautilus-window,
-.nautilus-window notebook,
-.nautilus-window notebook > stack {
-  background-image: none;
 }
 
 .nautilus-window .searchbar-container {
@@ -6600,13 +6752,6 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
 /***************
   * Chrome(ium) *
   ***************/
-window.background.chromium headerbar.titlebar button.titlebutton {
-  min-width: 23px;
-  min-height: 23px;
-  padding: 0 2px;
-  color: transparent;
-}
-
 window.background.chromium {
   background-color: #32343D;
   color: #D3DAE3;
@@ -6727,11 +6872,11 @@ stack#conversation_viewer scrolledwindow.geary-conversation-scroller > viewport.
   border: none;
 }
 
-popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view label, popover.background list.geary-folder-popover-list textview text.geary-folder-popover-list-row label, textview popover.background list.geary-folder-popover-list text.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list .nemo-window .nemo-places-sidebar .geary-folder-popover-list-row.places-treeview label, .nemo-window .nemo-places-sidebar popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.places-treeview label, .panel popover.background list.geary-folder-popover-list .sidebar .geary-folder-popover-list-row.view label, .panel popover.background .sidebar list.geary-folder-popover-list .geary-folder-popover-list-row.view label, popover.background list.geary-folder-popover-list treeview.geary-folder-popover-list-row.view.sidebar.source-list label, popover.background list.geary-folder-popover-list .budgie-popover row.geary-folder-popover-list-row label, .budgie-popover popover.background list.geary-folder-popover-list row.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row label, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row label {
+popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view label, popover.background list.geary-folder-popover-list textview text.geary-folder-popover-list-row label, textview popover.background list.geary-folder-popover-list text.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list treeview.geary-folder-popover-list-row.view label, popover.background list.geary-folder-popover-list .nemo-window .nemo-places-sidebar .geary-folder-popover-list-row.places-treeview label, .nemo-window .nemo-places-sidebar popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.places-treeview label, .panel popover.background list.geary-folder-popover-list .sidebar .geary-folder-popover-list-row.view label, .panel popover.background .sidebar list.geary-folder-popover-list .geary-folder-popover-list-row.view label, popover.background list.geary-folder-popover-list .budgie-popover row.geary-folder-popover-list-row label, .budgie-popover popover.background list.geary-folder-popover-list row.geary-folder-popover-list-row label, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row label, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row label {
   color: #D3DAE3;
 }
 
-popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view label:disabled, popover.background list.geary-folder-popover-list textview text.geary-folder-popover-list-row label:disabled, textview popover.background list.geary-folder-popover-list text.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list .nemo-window .nemo-places-sidebar .geary-folder-popover-list-row.places-treeview label:disabled, .nemo-window .nemo-places-sidebar popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.places-treeview label:disabled, .panel popover.background list.geary-folder-popover-list .sidebar .geary-folder-popover-list-row.view label:disabled, .panel popover.background .sidebar list.geary-folder-popover-list .geary-folder-popover-list-row.view label:disabled, popover.background list.geary-folder-popover-list treeview.geary-folder-popover-list-row.view.sidebar.source-list label:disabled, popover.background list.geary-folder-popover-list .budgie-popover row.geary-folder-popover-list-row label:disabled, .budgie-popover popover.background list.geary-folder-popover-list row.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row label:disabled, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row label:disabled {
+popover.background list.geary-folder-popover-list row.activatable.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.view label:disabled, popover.background list.geary-folder-popover-list textview text.geary-folder-popover-list-row label:disabled, textview popover.background list.geary-folder-popover-list text.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list iconview.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list treeview.geary-folder-popover-list-row.view label:disabled, popover.background list.geary-folder-popover-list .nemo-window .nemo-places-sidebar .geary-folder-popover-list-row.places-treeview label:disabled, .nemo-window .nemo-places-sidebar popover.background list.geary-folder-popover-list .geary-folder-popover-list-row.places-treeview label:disabled, .panel popover.background list.geary-folder-popover-list .sidebar .geary-folder-popover-list-row.view label:disabled, .panel popover.background .sidebar list.geary-folder-popover-list .geary-folder-popover-list-row.view label:disabled, popover.background list.geary-folder-popover-list .budgie-popover row.geary-folder-popover-list-row label:disabled, .budgie-popover popover.background list.geary-folder-popover-list row.geary-folder-popover-list-row label:disabled, popover.background list.geary-folder-popover-list .budgie-menu button.geary-folder-popover-list-row label:disabled, .budgie-menu popover.background list.geary-folder-popover-list button.geary-folder-popover-list-row label:disabled {
   color: rgba(211, 218, 227, 0.45);
 }
 
